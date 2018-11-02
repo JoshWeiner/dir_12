@@ -8,17 +8,17 @@
 #include <dirent.h>
 
 int main() {
-  DIR * ds = opendir("./test_dir");
+  DIR * ds = opendir(".");
 
   if (ds < 0) {
     printf("Erorr: %s \n", strerror(errno));
     return 0;
   }
   struct dirent * entry = readdir(ds);
-  char
+  
 
-  while (entry) {
-    printf("Name: %s", entry->d_name);
+    while (entry) {
+    printf("Name: %s\n", entry->d_name);
     if (entry->d_type == 4){
       printf(" is a Directory \n");
     }
@@ -39,6 +39,6 @@ int main() {
     return 0;
   }
 
-  printf("File size: %lld\n", b->st_size);
+  printf("File size: %ld\n", b->st_size);
 
 }
